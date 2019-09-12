@@ -6,10 +6,8 @@ page = requests.get('https://downdetector.com/status/'+ site)
 
 soup = BeautifulSoup(page.content, 'lxml')
 if soup.find_all(class_='alert mt-2 alert-success'):
-    print('Sem Problemas')
+    print('OK')
 elif soup.find_all(class_='alert mt-2 alert-warning'):
-    print('Passando por Problema')
+    print('Danger')
 else:
-    print('Perigo')
-
-
+    print('Down')
